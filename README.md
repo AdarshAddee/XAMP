@@ -37,7 +37,34 @@ XAMP is a begginer friendly server for android which host(s) localhost(s) on and
   - Apache2
   - Nginx
 
+## Installation 
+These are the following commands which can be used to install XAMP Serevr in Android (Termux).
+- Install step-by-step!
+  ```
+  apt update && apt upgrade -y
+  ```
+  ```
+  apt install git -y
+  ```
+  ```
+  git clone https://github.com/AdarshAddee/XAMP.git
+  ```
+  
+- One Line Install!
+  ```
+  apt update && apt upgrade -y && apt install git -y && git clone https://github.com/AdarshAddee/XAMP.git
+  ```
+  
+## Execution
+These are the commands which can be used to execute XAMP Serevr in Android (Termux).
+```
+cd XAMP
+```
+```
+chmod +x xamp
+```
 
+  
 
 
 
