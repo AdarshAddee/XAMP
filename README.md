@@ -100,8 +100,36 @@ XAMP - Server Supports GUI & CLI Mode as Well!
     -s, --stop            stop serving localhost service
   ```
 
+<!--
+
 <p align="center"><b>Open XAMP in Cloud Shell</b></p>
 <p align="center">
   <a href="https://shell.cloud.google.com/cloudshell/open?cloudshell_git_repo=https://github.com/AdarshAddee/XAMP.git&tutorial=README.md" target="_blank"><img src="https://gstatic.com/cloudssh/images/open-btn.svg"></a>
 </p>
+
+-->
+
+## Dependencies
+These are the following dependencies which are used by XAMP!
+- PHP
+- Python
+- Mariadb
+- Apache2
+- Nginx
+
+All these dependencies are going to install automatically when you run <b>xamp</b> server for the first time.
+
+## Mesaage
+You can use xamp server without using ``./`` also. As this may help you to start services more faster.
+
+## Sponsor
+You can sponsor this repo also if you want.
+
+# XAMP उपयोग करने के लिए आपका धन्यवाद
+
+
+
+
+
+
 
