@@ -92,9 +92,12 @@ XAMP - Server Supports GUI & CLI Mode as Well!
     -b, --banner          show banner and exit
     -py, --pyserver       start python server
     -php, --phpserver     start php server
-    -ap, --apache         start apache server
+    -ap2, --apache2       start apache2 server
     -ng, --nginx          start nginx server
     -v, --version         show version and exit
+    
+  stop service:
+    -s, --stop            stop serving localhost service
   ```
 
 
