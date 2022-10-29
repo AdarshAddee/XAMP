@@ -1,0 +1,293 @@
+#!/bin/bash
+
+rd="\e[1;31m"
+gr="\e[1;32m"
+yl="\e[1;33m"
+cy="\e[1;36m"
+wht="\e[0m"
+
+banner(){
+clear
+echo -e ${rd}
+echo "        ██   ██  █████  ███    ███ ██████  "
+echo "         ██ ██  ██   ██ ████  ████ ██   ██ "
+echo "          ███   ███████ ██ ████ ██ ██████  "
+echo "         ██ ██  ██   ██ ██  ██  ██ ██      "
+echo "        ██   ██ ██   ██ ██      ██ ██      "
+echo -e "                        ${cy} -By Adarsh Addee"
+echo
+echo -e "${yl}    ) --------------- ${gr}Start${yl} --------------- ("
+echo -e "${yl}  ) --------------- ${gr}Your Own${yl} --------------- ("
+echo -e "${yl}    ) -------------- ${gr}Server${yl} --------------- ("
+echo -e "${wht}\n"
+
+}
+
+help(){
+
+banner
+
+cat << EOF
+
+[*] XAMP: Start Your Own Server with XAMP in Android!!!!
+
+usage: xamp [argss]
+
+args:
+  -h, --help              show help message and exit
+  -b, --banner            show banner and exit
+  -py, --pyserver         start python server
+  -php, --phpserver       start php server
+  -sql, --mysql           start mysql server
+  -ap2, --apache2         start apache2 server
+  -ng, --nginx            start nginx server
+  -s, --stop              stop serving localhost and exit
+  -v, --version           show version and exit
+
+stop service:
+  -s, --stop              stop serving localhost service
+
+
+[!] Note: Just Type xamp to start xamp in GUI Mode!!!
+
+[!] Type localhost:8080 in browser to start local server!!!
+
+[!] Xamp is a localserver hosting script which is very useful & made for android users (Termux)!!!
+
+EOF
+
+}
+
+version(){
+    banner
+    echo "[*] xamp v1.0"
+    echo
+}
+
+
+loading(){
+    echo
+    echo -ne "${rd}[${yl}?${rd}]${cy} Starting Server...###"
+    for i in $( seq 15 ); do
+	echo -ne "#"
+	sleep 0.1
+    done
+    echo -e "${wht}"
+}
+
+start_mysql(){
+    banner
+
+    if [ ! -f ${HOME}/../usr/bin/mariadb ]; then
+        pkg install mariadb -y & sleep 1
+	start_mysql
+    else
+	echo -e "${rd}[${yl}!${rd}] ${yl}Mysql Found!!!"
+	loading
+    fi
+
+    if [ ! -d ${HOME}/../usr/etc/my.cnf.d ]; then
+	mkdir ${HOME}/../usr/etc/my.cnf.d
+    fi
+    sleep 1
+    mysqld_safe -u root & sleep 2
+    echo -e "\n${rd}[${yl}*${rd}]${gr} Mysql Server Started Successfully!!!\n"
+    mysql -h localhost
+}
+
+start_pyserver(){
+    banner
+
+    if [ ! -f ${HOME}/../usr/bin/python ]; then
+	pkg install python
+	start_pyserver
+    else
+        echo -e "${rd}[${yl}!${rd}] ${yl}Python Found!!!"
+        loading
+    fi
+
+    echo -e "\n${rd}[${yl}*${rd}]${gr} Python Server Started Successfully!!!\n"
+    sleep 0.5
+    echo -e "${rd}[${yl}!${rd}] ${wht}Serving Current Directory!\n"
+    echo -e "${rd}[${yl}!${rd}] ${yl}Type ${rd}127.0.0.1:8080 ${yl}in browser!!!\n"
+    sleep 0.5
+    python -m http.server 8080
+}
+
+start_phpserver(){
+    banner
+
+    if [ ! -f ${HOME}/../usr/bin/php ]; then
+        pkg install php
+	start_phpserver
+    else
+        echo -e "${rd}[${yl}!${rd}] ${yl}PHP Found!!!"
+        loading
+    fi
+    if [ ! -d ${PREFIX}/share/xamp ]; then
+        mkdir ${PREFIX}/share/xamp
+    fi
+    if [ ! -d ${PREFIX}/share/xamp/www ]; then
+	mkdir ${PREFIX}/share/xamp/www
+    fi
+    if [ ! -f ${PREFIX}/share/xamp/www/index.html ]; then
+	touch ${PREFIX}/share/xamp/www/index.html
+    fi
+
+    echo -e "\n${rd}[${yl}*${rd}]${gr} PHP Server Started Successfully!!!\n"
+    sleep 0.5
+    echo -e "${rd}[${yl}!${rd}] ${wht}You can make changes in ${cy}/share/xamp/www/index.html\n"
+    echo -e "${rd}[${yl}!${rd}] ${gr}Type 127.0.0.1:8080 in browser!!!\n\n"
+    sleep 0.5
+    php -S localhost:8080 ${PREFIX}/share/xamp/www/index.html
+}
+
+start_apache(){
+    banner
+
+    if [ ! -f ${HOME}/../usr/bin/apachectl ]; then
+        pkg install apache2
+	start_apache
+    else
+        echo -e "${rd}[${yl}!${rd}] ${yl}Apache Found!!!"
+        loading
+    fi
+
+    if [ -f ${HOME}/../usr/var/run/apache2/httpd.pid ]; then
+        rm ${HOME}/../usr/var/run/apache2/httpd.pid
+    fi
+    echo -e "\n${rd}[${yl}*${rd}]${gr} Apache Server Started Successfully!!!\n"
+    sleep 0.5
+    echo -e "${rd}[${yl}!${rd}] ${wht}You can make changes in ${cy}/share/apache2/default-site/htdocs/index.html\n"
+    echo -e "${rd}[${yl}!${rd}] ${gr}Type 127.0.0.1:8080 in browser!!!\n\n"
+    sleep 0.5
+    apachectl
+
+}
+
+start_nginx(){
+    banner
+
+    if [ ! -f ${HOME}/../usr/bin/nginx ]; then
+	pkg install nginx
+	start_nginx
+    else
+        echo -e "${rd}[${yl}!${rd}] ${yl}Nginx Found!!!"
+        loading
+    fi
+
+#   /usr/share/nginx/html/index.html
+    echo -e "\n${rd}[${yl}*${rd}]${gr} Nginx Server Started Successfully!!!\n"
+    sleep 0.5
+    echo -e "${rd}[${yl}!${rd}] ${wht}You can make changes in ${cy}/share/nginx/html/index.html\n"
+    echo -e "${rd}[${yl}!${rd}] ${gr}Type 127.0.0.1:8080 in browser!!!\n\n"
+    sleep 0.5
+    nginx
+
+}
+
+kill_pid(){
+
+    PID="php python mysql httpd nginx"
+    for process in ${PID};do
+	if [[ $(pidof ${process}) ]]; then
+	    kill $(pidof ${process})
+	fi
+    done
+
+}
+
+gui(){
+    banner
+    clr=$gr
+    pkgs=( php nginx python mariadb apachectl )
+
+    echo -e "\n${cy}[!] Select any one option:\n"
+
+    for pack in $( seq ${#pkgs[@]} ); do
+	if [ ! -f $PREFIX/bin/${pkgs[${pack}-1]} ]; then
+	    clr=$rd
+	fi
+	curpkg="${pkgs[${pack}-1]}"
+	echo -e "${rd}[${yl}0${pack}${rd}] ${clr}${curpkg}"
+    done
+
+    echo -e "${rd}[${yl}99${rd}] ${yl}Exit!!!"
+    echo -e "${rd}[${yl}00${rd}] ${yl}Stop Service(s)"
+
+    echo -e "${wht}"
+    read -p "[!] Enter your choice: " choice
+
+    case $choice in
+	"1" | "01" | "php" )
+	    start_phpserver;;
+
+	"2" | "02" | "nginx" )
+	    start_nginx;;
+
+	"3" | "03" | "python" )
+	    start_pyserver;;
+
+	"4" | "04" | "sql" | "mysql" | "mariadb" )
+	    start_mysql;;
+
+	"5" | "05" | "apachectl" | "apache2" | "apache" | "" )
+	    start_apache;;
+
+	"0" | "00" | "stop" )
+	    kill_pid;;
+
+	"99" | "exit" )
+	    echo -e "Bye - Bye!!!\n";;
+
+	* )
+	    help;;
+    esac
+
+}
+
+setup(){
+
+    if [ ! -f $PREFIX/bin/xamp ]; then
+	cp -f xamp $PREFIX/bin
+    fi
+
+    case $1 in
+	"-py" | "--pyserver" )
+	    start_pyserver;;
+
+	"-php" | "--phpserver" )
+	    start_phpserver;;
+
+
+	"-sql" | "--mysql" )
+	    start_mysql;;
+
+	"-ap2" | "--apache" | "--apache2" )
+	    start_apache;;
+
+	"-ng" | "--nginx" )
+	    start_nginx;;
+
+	"-s" | "--stop" )
+	    kill_pid;;
+
+	"-b" | "--banner" )
+	    banner;;
+
+	"-v" | "--version" )
+	    version;;
+
+	"" )
+	   gui;;
+
+	"-h" | "--help" | *)
+	    help;;
+
+    esac
+
+}
+
+
+setup $1
+
