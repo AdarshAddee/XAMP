@@ -100,7 +100,7 @@ XAMP - Server Supports GUI & CLI Mode as Well!
     -s, --stop            stop serving localhost service
   ```
 
-<b align="center">Open XAMP in Cloud Shell</b>
+<p align="center"><b>Open XAMP in Cloud Shell</b></p>
 <p align="center">
   <a href="https://shell.cloud.google.com/cloudshell/open?cloudshell_git_repo=https://github.com/AdarshAddee/XAMP.git&tutorial=README.md" target="_blank"><img src="https://gstatic.com/cloudssh/images/open-btn.svg"></a>
 </p>
