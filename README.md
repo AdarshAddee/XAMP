@@ -125,9 +125,9 @@ You can use xamp server without using ``./`` also. As this may help you to start
 ## Sponsor
 You can <b><a href="https://github.com/sponsors/AdarshAddee">sponsor</a></b> this repo also if you want.
 
-<hr>
+##
 
-<b> XAMP उपयोग करने के लिए आपका धन्यवाद!<?b>
+<b> ❤ XAMP उपयोग करने के लिए आपका धन्यवाद!</b>
 
 
 
