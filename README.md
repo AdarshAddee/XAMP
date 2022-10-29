@@ -66,13 +66,24 @@ chmod +x xamp
 
 ## Modes
 XAMP - Server Supports GUI & CLI Mode as Well!
-- Start XAMP - Server in GUI Mode!
+- ### GUI Mode!
+  XAMP - Server in GUI Mode can be started with:
   ```
   ./xamp
   ```
-- Start XAMP - Server in CLI Mod!
+- ### CLI Mode!
+  XAMP - Server  in CLI Mode have some arguments!
+  ```
+  ./xamp [args]
+  ```
+  
   Xamp Server have some arguments or options which can be used to start XAMP - Server in CLI Mode.
   
+  ```
+  ./xammp -h
+  ```
+  
+  Here are some commands which can be used:
 
 
 
