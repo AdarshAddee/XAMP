@@ -25,7 +25,17 @@
 ##
 
 # XAMP
-XAMP is a server for android which host(s) localhost(s) on android devices. <b>New feature for LINUX available after some time (Working on it!).</b> You can use this tool to start local server on android. After successfully executing tool, Just open <b>localhost:8080</b> to see your web page which is hosted on local server. 
+XAMP is a begginer friendly server for android which host(s) localhost(s) on android devices. <b>New feature for LINUX available after some time (Working on it!).</b> You can use this tool to start local server on android. After successfully executing tool, Just open <b>localhost:8080</b> to see your web page which is hosted on local server. 
+
+## Features
+- Begginer Friendly
+- Supports CLI and GUI Mode
+- Supports Multiple Servers
+  - PHP
+  - Python
+  - Mysql
+  - Apache2
+  - Nginx
 
 
 
