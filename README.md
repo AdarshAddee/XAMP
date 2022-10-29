@@ -77,13 +77,24 @@ XAMP - Server Supports GUI & CLI Mode as Well!
   ./xamp [args]
   ```
   
-  Xamp Server have some arguments or options which can be used to start XAMP - Server in CLI Mode.
+  Open xamp help page
   
   ```
   ./xammp -h
   ```
   
   Here are some commands which can be used:
-
+  ```
+  usage: xamp [args]
+  
+  args:
+    -h, --help            show help and exit
+    -b, --banner          show banner and exit
+    -py, --pyserver       start python server
+    -php, --phpserver     start php server
+    -ap, --apache         start apache server
+    -ng, --nginx          start nginx server
+    -v, --version         show version and exit
+  ```
 
 
