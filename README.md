@@ -12,7 +12,6 @@
   <img src="https://img.shields.io/github/license/AdarshAddee/XAMP?style=for-the-badge">
 </p>
 
-
 <p align="center">
   <img src="https://img.shields.io/badge/Author-AdarshAddee-blue?style=flat-square">
   <img src="https://img.shields.io/badge/Written%20In-Bash-darkcyan?style=flat-square">
@@ -24,4 +23,11 @@
 </p>
 
 ##
+
+# XAMP
+XAMP is a server for android which host(s) localhost(s) on android devices. <b>New feature for LINUX available after some time (Working on it!).</b> You can use this tool to start local server on android. After successfully executing tool, Just open <b>localhost:8080</b> to see your web page which is hosted on local server. 
+
+
+
+
 
