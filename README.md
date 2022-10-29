@@ -50,7 +50,7 @@ These are the following commands which can be used to install XAMP Serevr in And
   git clone https://github.com/AdarshAddee/XAMP.git
   ```
   
-- One Line Install!
+- One Line Installion!
   ```
   apt update && apt upgrade -y && apt install git -y && git clone https://github.com/AdarshAddee/XAMP.git
   ```
@@ -64,6 +64,14 @@ cd XAMP
 chmod +x xamp
 ```
 
+## Modes
+XAMP - Server Supports GUI & CLI Mode as Well!
+- Start XAMP - Server in GUI Mode!
+  ```
+  ./xamp
+  ```
+- Start XAMP - Server in CLI Mod!
+  Xamp Server have some arguments or options which can be used to start XAMP - Server in CLI Mode.
   
 
 
